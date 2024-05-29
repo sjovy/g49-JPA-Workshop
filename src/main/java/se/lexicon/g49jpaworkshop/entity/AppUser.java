@@ -23,7 +23,7 @@ public class AppUser {
     @Column
     private LocalDate regDate;
 
-    @Column
+
     @OneToOne
     @JoinColumn(name = "details_id")
     private Details userDetails;
