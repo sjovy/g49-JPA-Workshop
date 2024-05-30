@@ -1,12 +1,16 @@
 package se.lexicon.g49jpaworkshop.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class AppUser {
 
@@ -28,4 +32,8 @@ public class AppUser {
     @JoinColumn(name = "details_id")
     private Details userDetails;
 
+    public AppUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 }
