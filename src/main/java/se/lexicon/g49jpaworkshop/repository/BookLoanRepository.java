@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public interface BookLoanRepository extends JpaRepository<Boolean, Integer> {
+public interface BookLoanRepository extends JpaRepository<BookLoan, Integer> {
 
     @Query("SELECT bl FROM AppUser a JOIN a.bookLoans bl WHERE a.id = :borrowerId")
     List<BookLoan> findByBorrowerId(@Param("borrowerId") Integer borrowerId);
@@ -28,8 +28,9 @@ public interface BookLoanRepository extends JpaRepository<Boolean, Integer> {
 
     @Query("SELECT b FROM BookLoan b WHERE b.loanDate BETWEEN :startDate AND :endDate")
     List<BookLoan> findByBookLoansBetween(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
-@Modifying
-@Transactional
-@Query("UPDATE BookLoan b SET b.returned = TRUE WHERE b.id = :loanId")
-    void  markAsReturned(@Param("loanId")Integer loanId);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE BookLoan b SET b.returned = TRUE WHERE b.id = :loanId")
+    void markAsReturned(@Param("loanId") Integer loanId);
 }
