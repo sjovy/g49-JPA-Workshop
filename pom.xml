@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>se.lexicon</groupId>
-    <artifactId>g49-JPA-Workshop</artifactId>
+    <artifactId>g49-JPA-BookLender</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>g49-JPA-Workshop</name>
     <description>g49-JPA-Workshop</description>
