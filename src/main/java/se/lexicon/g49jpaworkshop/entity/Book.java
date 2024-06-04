@@ -30,5 +30,9 @@ public class Book {
     private List<BookLoan> bookLoans;
 
 
-
+    public Book(String isbn, String title, int maxLoanDays) {
+        this.isbn = isbn;
+        this.title = title;
+        this.maxLoanDays = maxLoanDays;
+    }
 }
