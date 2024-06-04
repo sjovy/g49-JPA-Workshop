@@ -34,4 +34,11 @@ public class BookLoan {
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
+
+    public BookLoan(LocalDate loanDate, AppUser borrower, Book book) {
+        this.loanDate = loanDate;
+        this.dueDate = loanDate.plusDays(book.getMaxLoanDays());
+        this.borrower = borrower;
+        this.book = book;
+    }
 }

@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import se.lexicon.g49jpaworkshop.entity.Book;
 import se.lexicon.g49jpaworkshop.repository.BookRepository;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
