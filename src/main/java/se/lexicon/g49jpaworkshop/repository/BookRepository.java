@@ -24,6 +24,6 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findOverdueBooks();
 
     @Query("SELECT b FROM Book b JOIN b.bookLoans bl WHERE bl.loanDate BETWEEN :startDate AND :endDate")
-    List<Book> findByBookLoansBetween(@Param("StartDate")LocalDate startDate, @Param("endDate")LocalDate endDate);
+List<Book> findByBookLoansBetween(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
 }
