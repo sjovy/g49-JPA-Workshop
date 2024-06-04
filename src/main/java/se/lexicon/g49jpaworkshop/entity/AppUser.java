@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,6 +32,10 @@ public class AppUser {
     @OneToOne
     @JoinColumn(name = "details_id")
     private Details userDetails;
+
+    @OneToMany(mappedBy = "borrower")
+    private List<BookLoan> bookLoans;
+
 
     public AppUser(String userName, String password) {
         this.userName = userName;
