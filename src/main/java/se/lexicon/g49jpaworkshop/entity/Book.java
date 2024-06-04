@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -23,6 +25,9 @@ public class Book {
 
     @Column
     private int maxLoanDays;
+
+    @OneToMany(mappedBy = "book")
+    private List<BookLoan> bookLoans;
 
 
 

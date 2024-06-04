@@ -25,9 +25,13 @@ public class BookLoan {
     @Column
     private boolean returned;
 
-    @Column
+
+    @ManyToOne
+    @JoinColumn(name = "appUser_id")
     private AppUser borrower;
 
-    @Column
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
     private Book book;
 }
