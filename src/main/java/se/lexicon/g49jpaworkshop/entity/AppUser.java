@@ -41,4 +41,15 @@ public class AppUser {
         this.userName = userName;
         this.password = password;
     }
+
+    public void borrowBook(Book book){
+        if (book == null) throw new IllegalArgumentException("Book cannot be null");
+        if (book.isAvailable()){
+            BookLoan bookLoan = new BookLoan(LocalDate.now(), this, book);
+            this.bookLoans.add(bookLoan);
+            book.setAvailable(false);
+        }else {
+            throw new IllegalArgumentException("Book is not available");
+        }
+    }
 }
