@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -28,6 +29,9 @@ public class Book {
 
     @OneToMany(mappedBy = "book")
     private List<BookLoan> bookLoans;
+
+    @ManyToMany(mappedBy = "writtenBooks")
+    private Set<Author> authors;
 
 
     public Book(String isbn, String title, int maxLoanDays) {
