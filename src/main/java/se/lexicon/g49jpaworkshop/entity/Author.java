@@ -3,6 +3,7 @@ package se.lexicon.g49jpaworkshop.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -29,6 +30,7 @@ public class Author {
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
+    @EqualsAndHashCode.Exclude
     private Set<Book> writtenBooks = new HashSet<>();
 
     public void addBook(Book book) {
