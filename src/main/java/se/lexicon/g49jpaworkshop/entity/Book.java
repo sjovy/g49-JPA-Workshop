@@ -28,7 +28,7 @@ public class Book {
     private int maxLoanDays;
 
     @Column
-    private boolean available;
+    private boolean available = true;
 
     @OneToMany(mappedBy = "book")
     private List<BookLoan> bookLoans;
@@ -43,4 +43,17 @@ public class Book {
         this.maxLoanDays = maxLoanDays;
     }
 
+    public void addAuthor(Author author){
+        if (author != null && !this.authors.contains(author)){
+            this.authors.add(author);
+            author.getWrittenBooks().add(this);
+        }
+    }
+
+    public void removeAuthor(Author author){
+        if (author != null && this.authors.contains(author)){
+            this.authors.remove(author);
+            author.getWrittenBooks().remove(this);
+        }
+    }
 }

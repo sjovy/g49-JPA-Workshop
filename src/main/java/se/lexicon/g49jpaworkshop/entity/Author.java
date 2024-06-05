@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,19 @@ public class Author {
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
-
     private Set<Book> writtenBooks;
+
+    public void addBook(Book book) {
+        if (book != null && !this.writtenBooks.contains(book)) {
+            this.writtenBooks.add(book);
+            book.getAuthors().add(this);
+        }
+    }
+
+    public void removeBook(Book book) {
+        if (book != null && this.writtenBooks.contains(book)) {
+            this.writtenBooks.remove(book);
+            book.getAuthors().remove(this);
+        }
+    }
 }
