@@ -42,14 +42,16 @@ public class AppUser {
         this.password = password;
     }
 
-    public void borrowBook(Book book){
+    public boolean borrowBook(Book book){
         if (book == null) throw new IllegalArgumentException("Book cannot be null");
         if (book.isAvailable()){
             BookLoan bookLoan = new BookLoan(LocalDate.now(), this, book);
             this.bookLoans.add(bookLoan);
             book.setAvailable(false);
+            return true;
         }else {
-            throw new IllegalArgumentException("Book is not available");
-        }
+            System.out.println("The book is not available");
+            return false;
+            }
     }
 }
