@@ -35,7 +35,3 @@ mvn spring-boot:run
 
 - Integration with a frontend application built using React or Angular.
 - Addition of more features like book reservations, user notifications, etc.
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
