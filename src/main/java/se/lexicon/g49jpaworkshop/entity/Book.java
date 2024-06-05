@@ -27,6 +27,9 @@ public class Book {
     @Column
     private int maxLoanDays;
 
+    @Column
+    private boolean available;
+
     @OneToMany(mappedBy = "book")
     private List<BookLoan> bookLoans;
 
@@ -39,4 +42,5 @@ public class Book {
         this.title = title;
         this.maxLoanDays = maxLoanDays;
     }
+
 }
