@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,7 @@ public class AppUser {
     private Details userDetails;
 
     @OneToMany(mappedBy = "borrower")
-    private List<BookLoan> bookLoans;
+    private List<BookLoan> bookLoans = new ArrayList<>();
 
 
     public AppUser(String userName, String password) {

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,10 +33,10 @@ public class Book {
     private boolean available = true;
 
     @OneToMany(mappedBy = "book")
-    private List<BookLoan> bookLoans;
+    private List<BookLoan> bookLoans = new ArrayList<>();
 
     @ManyToMany(mappedBy = "writtenBooks")
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
 
     public Book(String isbn, String title, int maxLoanDays) {
