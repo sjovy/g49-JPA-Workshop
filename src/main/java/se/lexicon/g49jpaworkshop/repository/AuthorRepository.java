@@ -16,6 +16,6 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
     List<Author> findByWrittenBooks_id(int book_id);
     @Transactional
     @Modifying
-    @Query("UPDATE Details d SET d.name = ?1, d.email = ?2, d.birthDay = ?3 WHERE d.id = ?4")
-    int updateDetailsById(String name, String email, LocalDate birthday, int id);
+    @Query("UPDATE Author a SET a.firstName = ?1, a.lastName = ?2, a.id = ?3")
+    int updateAuthorById(String firstName, String lastName, int id);
 }
